@@ -12,7 +12,8 @@ public class Url {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "original_url", nullable = false, length = 3000)
+
+    @Column(name = "original_url", nullable = false)
     private String originalUrl;
 
     @Column(name = "short_code", nullable = false, length = 150)
@@ -24,7 +25,6 @@ public class Url {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_at", nullable = false, updatable = false)
     private Date createdAt;
-
 
     public void setId(Long idUrl) {
         this.id = idUrl;
