@@ -32,9 +32,11 @@ public class UrlManagerServiceImpl implements UrlManagerService {
         return urlRepository.findByOriginalUrl(url);
     }
 
-    private void updateHitCount(Url url) {
-        url.setHitCount(url.getHitCount() + 1);
-        updateUrl(url);
+    private void updateHitCount(Optional<Url> optionalUrl) {
+        optionalUrl.ifPresent(url -> {
+            url.setHitCount(url.getHitCount() + 1);
+            updateUrl(url);
+        });
     }
 
     private Url saveShortUrl(String urlRequest) {
@@ -58,7 +60,7 @@ public class UrlManagerServiceImpl implements UrlManagerService {
     public UrlResponse shortUrl(String urlRequest) {
         Optional<Url> url = getUrlByUrl(urlRequest);
         if (url.isPresent()) {
-            updateHitCount(url.get());
+            updateHitCount(url);
             return new UrlResponse(url.get().getShortCode(), urlRequest);
         }
 
