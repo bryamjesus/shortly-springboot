@@ -30,7 +30,7 @@ public class ShortlyController {
     @PostMapping()
     public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Validated @RequestBody ShortUrlRequest shortUrlRequest) {
         UrlResponse urlResponse = urlManagerService.shortUrl(shortUrlRequest.getUrl());
-        return ResponseEntity.ok(ResponseUtil.succes("Code 2", urlResponse)); // https://refactoring.guru/es/design-patterns/builder
+        return ResponseEntity.ok(ResponseUtil.succes("Code 2", urlResponse));
     }
 
 }
