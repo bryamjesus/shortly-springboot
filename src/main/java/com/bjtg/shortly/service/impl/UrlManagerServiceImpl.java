@@ -31,7 +31,7 @@ public class UrlManagerServiceImpl implements UrlManagerService {
                 .orElseThrow(() -> new RuntimeException("URL not found"));
 
         System.out.println("longUrl = " + longUrl);
-        return null;
+        return new UrlResponse(codeUrl, longUrl);
     }
 
 }
