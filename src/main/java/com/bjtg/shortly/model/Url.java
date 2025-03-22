@@ -7,7 +7,6 @@ import java.util.Date;
 @Entity
 @Table(name = "url")
 public class Url {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -87,5 +86,4 @@ public class Url {
     public void setModifiedAt(Date modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
-
 }

@@ -1,7 +1,6 @@
 package com.bjtg.shortly.dto.url;
 
 public class UrlResponse {
-
     private String originalUrl;
     private String shortCode;
 
@@ -28,5 +27,4 @@ public class UrlResponse {
     public void setShortCode(String shortCode) {
         this.shortCode = shortCode;
     }
-
 }

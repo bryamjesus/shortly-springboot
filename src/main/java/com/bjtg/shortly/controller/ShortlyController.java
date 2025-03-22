@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("shortly")
 public class ShortlyController {
-
     private final UrlManagerService urlManagerService;
 
     public ShortlyController(UrlManagerService urlManagerService) {
@@ -23,16 +22,15 @@ public class ShortlyController {
     @GetMapping("/{codeUrl}")
     public ResponseEntity<ApiResponse<UrlResponse>> getUrlByCodeUrl(@PathVariable(value = "codeUrl") String codeUrl) {
         UrlResponse urlResponse = urlManagerService.getUrlByCode(codeUrl);
-        return ResponseEntity.ok(ResponseUtil.succes("Code", urlResponse));
+        return ResponseEntity.ok(ResponseUtil.succes("Url retrieved successfully", urlResponse));
     }
 
     // http://localhost:8080/shortly
     @PostMapping()
     public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Validated @RequestBody ShortUrlRequest shortUrlRequest) {
         UrlResponse urlResponse = urlManagerService.shortUrl(shortUrlRequest.getUrl());
-        return ResponseEntity.ok(ResponseUtil.succes("Code 2", urlResponse));
+        return ResponseEntity.ok(ResponseUtil.succes("Short URL generate successfully", urlResponse));
     }
-
 }
 
 // patron use cases

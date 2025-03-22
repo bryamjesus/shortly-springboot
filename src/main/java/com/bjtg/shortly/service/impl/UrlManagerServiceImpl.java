@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Service
 public class UrlManagerServiceImpl implements UrlManagerService {
-
     private final UrlRepository urlRepository;
     private final UrlShortService urlShortService;
 
@@ -68,5 +67,4 @@ public class UrlManagerServiceImpl implements UrlManagerService {
             return new UrlResponse(savedUrl.getShortCode(), savedUrl.getOriginalUrl());
         });
     }
-
 }

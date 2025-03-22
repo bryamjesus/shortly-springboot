@@ -7,7 +7,6 @@ import java.util.Random;
 
 @Service
 public class UrlShortServiceImpl implements UrlShortService {
-
     public String shortUrl() {
         return getSaltString();
     }
@@ -22,5 +21,4 @@ public class UrlShortServiceImpl implements UrlShortService {
         }
         return salt.toString();
     }
-
 }
