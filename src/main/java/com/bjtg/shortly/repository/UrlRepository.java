@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UrlRepository extends JpaRepository<Url, Long> {
 
-    //List<Url> findByUrl(String originalUrl);
+    List<Url> findByShortCode(String codeUrl);
 
     //void saveUrl(Url url);
 

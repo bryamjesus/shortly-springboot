@@ -18,14 +18,18 @@ public class ShortlyController {
 
     // http://localhost:8080/shortly/{codeUrl}
     @GetMapping("/{codeUrl}")
-    public ResponseEntity<String> getUrlWithCode(@PathVariable(value = "codeUrl") String codeUrl) {
+    public ResponseEntity<String> getUrlByCodeUrl(@PathVariable(value = "codeUrl") String codeUrl) {
+        urlManagerService.getUrlByCode(codeUrl);
         return ResponseEntity.ok("Hello World " + codeUrl);
     }
 
     // http://localhost:8080/shortly
     @PostMapping()
-    public ResponseEntity<String> shortUrl(@RequestBody @Validated ShortUrlRequest shortUrlRequest) {
+    public ResponseEntity<String> shortUrl(@Validated @RequestBody ShortUrlRequest shortUrlRequest) {
         return ResponseEntity.ok("Hello World " + shortUrlRequest.getUrl());
     }
 
 }
+
+// patron use cases
+// estudiar mejor patron dto

@@ -1,12 +1,7 @@
 package com.bjtg.shortly.service;
 
-import com.bjtg.shortly.model.Url;
-
-import java.util.List;
+import com.bjtg.shortly.dto.url.UrlResponse;
 
 public interface UrlManagerService {
-    void saveUrl(String originalUrl);
-
-    List<Url> getUrl(String urlOriginal); // cambiar model
-
+    UrlResponse getUrlByCode(String codeUrl);
 }
