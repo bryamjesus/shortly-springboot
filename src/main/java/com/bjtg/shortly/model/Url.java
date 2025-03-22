@@ -25,6 +25,21 @@ public class Url {
     @Column(name = "create_at", nullable = false, updatable = false)
     private Date createdAt;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "modified_at", nullable = false, updatable = false)
+    private Date modifiedAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = new Date();
+        this.hitCount = 1;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.modifiedAt = new Date();
+    }
+
     public void setId(Long idUrl) {
         this.id = idUrl;
     }
@@ -57,18 +72,20 @@ public class Url {
         return hitCount;
     }
 
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = new Date();
-        this.hitCount = 1;
-    }
-
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
     public Date getCreatedAt() {
         return createdAt;
+    }
+
+    public Date getModifiedAt() {
+        return modifiedAt;
+    }
+
+    public void setModifiedAt(Date modifiedAt) {
+        this.modifiedAt = modifiedAt;
     }
 
 }
