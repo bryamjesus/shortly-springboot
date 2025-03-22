@@ -58,14 +58,15 @@ public class UrlManagerServiceImpl implements UrlManagerService {
 
     @Override
     public UrlResponse shortUrl(String urlRequest) {
-        Optional<Url> url = getUrlByUrl(urlRequest);
-        if (url.isPresent()) {
-            updateHitCount(url);
-            return new UrlResponse(url.get().getShortCode(), urlRequest);
-        }
+        Optional<Url> optionalUrl = getUrlByUrl(urlRequest);
 
-        Url urlNew = saveShortUrl(urlRequest);
-        return new UrlResponse(urlNew.getShortCode(), urlNew.getOriginalUrl());
+        return optionalUrl.map(existingUrl -> {
+            updateHitCount(optionalUrl);
+            return new UrlResponse(existingUrl.getShortCode(), urlRequest);
+        }).orElseGet(() -> {
+            Url savedUrl = saveShortUrl(urlRequest);
+            return new UrlResponse(savedUrl.getShortCode(), savedUrl.getOriginalUrl());
+        });
     }
 
 }
