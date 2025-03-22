@@ -9,7 +9,7 @@ import java.util.Random;
 public class UrlShortServiceImpl implements UrlShortService {
 
     public String shortUrl() {
-        return "bryamtalledo/" + getSaltString();
+        return getSaltString();
     }
 
     private String getSaltString() {

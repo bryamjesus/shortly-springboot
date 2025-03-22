@@ -28,8 +28,9 @@ public class ShortlyController {
 
     // http://localhost:8080/shortly
     @PostMapping()
-    public ResponseEntity<String> shortUrl(@Validated @RequestBody ShortUrlRequest shortUrlRequest) {
-        return ResponseEntity.ok("Hello World " + shortUrlRequest.getUrl());
+    public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Validated @RequestBody ShortUrlRequest shortUrlRequest) {
+        UrlResponse urlResponse = urlManagerService.shortUrl(shortUrlRequest.getUrl());
+        return ResponseEntity.ok(ResponseUtil.succes("Code 2", urlResponse)); // https://refactoring.guru/es/design-patterns/builder
     }
 
 }
