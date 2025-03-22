@@ -2,7 +2,6 @@ package com.bjtg.shortly.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -16,7 +15,7 @@ public class Url {
     @Column(name = "original_url", nullable = false)
     private String originalUrl;
 
-    @Column(name = "short_code", nullable = false, length = 150)
+    @Column(name = "short_code", nullable = false, length = 8)
     private String shortCode;
 
     @Column(name = "hit_count")
@@ -61,6 +60,7 @@ public class Url {
     @PrePersist
     public void prePersist() {
         this.createdAt = new Date();
+        this.hitCount = 1;
     }
 
     public void setCreatedAt(Date createdAt) {

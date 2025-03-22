@@ -7,7 +7,6 @@ import com.bjtg.shortly.service.UrlManagerService;
 import com.bjtg.shortly.service.UrlShortService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,7 +42,6 @@ public class UrlManagerServiceImpl implements UrlManagerService {
         Url url = new Url();
         url.setOriginalUrl(urlRequest);
         url.setShortCode(shorCode);
-        url.setHitCount(1);
         return saveUrl(url);
     }
 
@@ -58,14 +56,12 @@ public class UrlManagerServiceImpl implements UrlManagerService {
 
     @Override
     public UrlResponse shortUrl(String urlRequest) {
-        // Validar si existe
         Optional<Url> url = getUrlByUrl(urlRequest);
         if (url.isPresent()) {
             updateHitCount(url.get());
             return new UrlResponse(url.get().getShortCode(), urlRequest);
         }
 
-        // generar codigo y guardarlo
         Url urlNew = saveShortUrl(urlRequest);
         return new UrlResponse(urlNew.getShortCode(), urlNew.getOriginalUrl());
     }
