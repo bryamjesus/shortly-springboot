@@ -26,7 +26,7 @@ public class Url {
     private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "modified_at", nullable = false, updatable = false)
+    @Column(name = "modified_at")
     private Date modifiedAt;
 
     @PrePersist
