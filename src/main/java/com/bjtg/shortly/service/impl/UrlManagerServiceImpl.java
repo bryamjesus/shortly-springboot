@@ -23,14 +23,10 @@ public class UrlManagerServiceImpl implements UrlManagerService {
 
     @Override
     public UrlResponse getUrlByCode(String codeUrl) {
-        System.out.println("codeUrl = " + codeUrl);
         String longUrl = urlRepository.findByShortCode(codeUrl)
-                .stream()
-                .findFirst()
                 .map(Url::getOriginalUrl)
                 .orElseThrow(() -> new RuntimeException("URL not found"));
 
-        System.out.println("longUrl = " + longUrl);
         return new UrlResponse(codeUrl, longUrl);
     }
 

@@ -23,7 +23,6 @@ public class ShortlyController {
     @GetMapping("/{codeUrl}")
     public ResponseEntity<ApiResponse<UrlResponse>> getUrlByCodeUrl(@PathVariable(value = "codeUrl") String codeUrl) {
         UrlResponse urlResponse = urlManagerService.getUrlByCode(codeUrl);
-        System.out.println("urlResponse.getOriginalUrl() + \" - \" + urlResponse.getShortCode() = " + urlResponse.getOriginalUrl() + " - " + urlResponse.getShortCode());
         return ResponseEntity.ok(ResponseUtil.succes("Code", urlResponse));
     }
 
