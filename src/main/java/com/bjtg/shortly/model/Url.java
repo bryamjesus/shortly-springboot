@@ -52,7 +52,6 @@ public class Url {
 
     public void setHitCount(Integer hitCount) {
         this.hitCount = hitCount;
-
     }
 
     public Integer getHitCount() {

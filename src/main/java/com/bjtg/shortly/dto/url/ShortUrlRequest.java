@@ -1,19 +1,16 @@
 package com.bjtg.shortly.dto.url;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import org.antlr.v4.runtime.misc.NotNull;
 
-public class UrlRequest {
+public class ShortUrlRequest {
 
     @NotBlank(message = "url requerido")
-    @Size()
     private String url;
 
-    public UrlRequest() {
+    public ShortUrlRequest() {
     }
 
-    public UrlRequest(String url) {
+    public ShortUrlRequest(String url) {
         this.url = url;
     }
 
