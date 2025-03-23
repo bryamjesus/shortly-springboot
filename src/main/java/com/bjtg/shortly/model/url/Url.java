@@ -1,4 +1,4 @@
-package com.bjtg.shortly.model;
+package com.bjtg.shortly.model.url;
 
 import jakarta.persistence.*;
 
@@ -39,51 +39,58 @@ public class Url {
         this.modifiedAt = new Date();
     }
 
-    public void setId(Long idUrl) {
-        this.id = idUrl;
+    protected Url() {
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setOriginalUrl(String originalUrl) {
-        this.originalUrl = originalUrl;
+    void setId(Long id) {
+        this.id = id;
     }
 
     public String getOriginalUrl() {
         return originalUrl;
     }
 
-    public void setShortCode(String shortCode) {
-        this.shortCode = shortCode;
+    void setOriginalUrl(String originalUrl) {
+        this.originalUrl = originalUrl;
     }
 
     public String getShortCode() {
         return shortCode;
     }
 
-    public void setHitCount(Integer hitCount) {
-        this.hitCount = hitCount;
+    void setShortCode(String shortCode) {
+        this.shortCode = shortCode;
     }
 
     public Integer getHitCount() {
         return hitCount;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    void setHitCount(Integer hitCount) {
+        this.hitCount = hitCount;
     }
 
     public Date getCreatedAt() {
         return createdAt;
     }
 
+    void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public Date getModifiedAt() {
         return modifiedAt;
     }
 
-    public void setModifiedAt(Date modifiedAt) {
+    void setModifiedAt(Date modifiedAt) {
         this.modifiedAt = modifiedAt;
+    }
+
+    public void increaseHitCount() {
+        this.hitCount += 1;
     }
 }

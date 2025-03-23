@@ -1,6 +1,6 @@
 package com.bjtg.shortly.repository;
 
-import com.bjtg.shortly.model.Url;
+import com.bjtg.shortly.model.url.Url;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
