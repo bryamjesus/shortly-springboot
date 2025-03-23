@@ -14,7 +14,7 @@ public class Url {
     @Column(name = "original_url", nullable = false)
     private String originalUrl;
 
-    @Column(name = "short_code", nullable = false, length = 8)
+    @Column(name = "short_code", nullable = false, length = 8, unique = true)
     private String shortCode;
 
     @Column(name = "hit_count")
