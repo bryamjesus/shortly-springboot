@@ -39,55 +39,44 @@ public class Url {
         this.modifiedAt = new Date();
     }
 
-    protected Url() {
+    public Url() {
+    }
+
+    Url(UrlBuilder builder) {
+        this.id = builder.getId();
+        this.originalUrl = builder.getOriginalUrl();
+        this.shortCode = builder.getShortCode();
+        this.hitCount = builder.getHitCount();
+        this.createdAt = builder.getCreatedAt();
+        this.modifiedAt = builder.getModifiedAt();
+    }
+
+    public static UrlBuilder builder(String originalUrl, String shortCode) {
+        return new UrlBuilder(originalUrl, shortCode);
     }
 
     public Long getId() {
         return id;
     }
 
-    void setId(Long id) {
-        this.id = id;
-    }
-
     public String getOriginalUrl() {
         return originalUrl;
-    }
-
-    void setOriginalUrl(String originalUrl) {
-        this.originalUrl = originalUrl;
     }
 
     public String getShortCode() {
         return shortCode;
     }
 
-    void setShortCode(String shortCode) {
-        this.shortCode = shortCode;
-    }
-
     public Integer getHitCount() {
         return hitCount;
-    }
-
-    void setHitCount(Integer hitCount) {
-        this.hitCount = hitCount;
     }
 
     public Date getCreatedAt() {
         return createdAt;
     }
 
-    void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public Date getModifiedAt() {
         return modifiedAt;
-    }
-
-    void setModifiedAt(Date modifiedAt) {
-        this.modifiedAt = modifiedAt;
     }
 
     public void increaseHitCount() {

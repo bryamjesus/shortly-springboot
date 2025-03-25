@@ -2,7 +2,6 @@ package com.bjtg.shortly.service.impl;
 
 import com.bjtg.shortly.dto.url.UrlResponse;
 import com.bjtg.shortly.model.url.Url;
-import com.bjtg.shortly.model.url.UrlBuilder;
 import com.bjtg.shortly.repository.UrlRepository;
 import com.bjtg.shortly.service.UrlManagerService;
 import com.bjtg.shortly.service.UrlShortService;
@@ -39,9 +38,8 @@ public class UrlManagerServiceImpl implements UrlManagerService {
 
     private Url saveShortUrl(String urlRequest) {
         String shorCode = this.urlShortService.shortUrl();
-        Url url = new UrlBuilder()
-                .originalUrl(urlRequest)
-                .shortCode(shorCode)
+        System.out.println("El nuevo codigo que se creo: " + shorCode);
+        Url url = Url.builder(urlRequest, shorCode)
                 .build();
         return saveUrl(url);
     }
