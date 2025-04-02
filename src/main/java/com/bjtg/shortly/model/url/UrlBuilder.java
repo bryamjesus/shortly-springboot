@@ -1,7 +1,5 @@
 package com.bjtg.shortly.model.url;
 
-import jakarta.persistence.*;
-
 import java.util.Date;
 
 public class UrlBuilder {
