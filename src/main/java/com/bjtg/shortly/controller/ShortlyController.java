@@ -23,7 +23,7 @@ public class ShortlyController {
     // http://localhost:8080/shortly/{codeUrl}
     @GetMapping("/{codeUrl}")
     public ResponseEntity<ApiResponse<UrlResponse>> getUrlByCodeUrl(@PathVariable(value = "codeUrl")
-                                                                    @Pattern(regexp = "^[A-Z0-9]{8}$",
+                                                                    @Pattern(regexp = "^[A-Za-z0-9]{8}$",
                                                                             message = "El código debe tener 8 caracteres y contener solo letras mayúsculas y números")
                                                                     String codeUrl) {
         UrlResponse urlResponse = urlManagerService.getUrlByCode(codeUrl);
