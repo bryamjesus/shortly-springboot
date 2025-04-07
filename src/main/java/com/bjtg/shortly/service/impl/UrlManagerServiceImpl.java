@@ -36,10 +36,20 @@ public class UrlManagerServiceImpl implements UrlManagerService {
         updateUrl(url);
     }
 
+    private String generateCodeUrl() {
+        String codeUrl = this.urlShortService.shortUrl();
+        Optional<Url> url = urlRepository.findByShortCode(codeUrl);
+        System.out.println("El nuevo codigo que se creo: " + codeUrl + " - Existe: " + url.isPresent());
+        if (url.isPresent()) {
+            System.out.println("Entro a recursividad");
+            return generateCodeUrl();
+        }
+        return codeUrl;
+    }
+
     private Url saveShortUrl(String urlRequest) {
-        String shorCode = this.urlShortService.shortUrl();
-        System.out.println("El nuevo codigo que se creo: " + shorCode);
-        Url url = Url.builder(urlRequest, shorCode)
+        String codeUrl = generateCodeUrl();
+        Url url = Url.builder(urlRequest, codeUrl)
                 .build();
         return saveUrl(url);
     }
