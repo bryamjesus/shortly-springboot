@@ -77,3 +77,22 @@ src/main/java/com/bjtg/shortly/
 - Java 21+
 - Maven 3.6+
 - PostgreSQL 14+
+
+---
+
+## Instalación y configuración
+
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/bryamjesus/shortly-springboot.git
+   cd shortly-springboot
+   ```
+
+2. **Configurar la base de datos**:
+    - Crear una base de datos en PostgreSQL (por ejemplo, `shortly_db`).
+    - Ajustar `src/main/resources/application-dev.properties` con tus credenciales:
+      ```properties
+      spring.datasource.url=jdbc:postgresql://localhost:5432/shortly_db
+      spring.datasource.username=tu_usuario
+      spring.datasource.password=tu_contraseña
+      ```
