@@ -97,6 +97,11 @@ src/main/java/com/bjtg/shortly/
       spring.datasource.password=tu_contraseña
       ```
 
+3. **Ejecutar la aplicación**:
+   ```bash
+   ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+   ```
+
 ---
 
 ## Endpoints de la API
