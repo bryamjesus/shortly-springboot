@@ -36,27 +36,32 @@ Representación de la estructura de archivos:
 ```
 src/main/java/com/bjtg/shortly/
 ├── config/
-│   ├── CorsProperties.java
-│   ├── CorsConfig.java
+│   ├── CorsConfigurationSourceClass.java
 │   └── SecurityConfig.java
 ├── controller/
 │   └── ShortlyController.java
-├── service/
-│   ├── UrlManagerService.java
-│   └── UrlManagerServiceImpl.java
-├── repository/
-│   └── UrlRepository.java
-├── model/
-│   └── url/
-│       └── Url.java
 ├── dto/
-│   ├── ShortUrlRequest.java
-│   ├── UrlResponse.java
-│   └── ApiResponse.java
+│   ├── ApiResponse.java
+│   └── url/
+│       ├── ShortUrlRequest.java
+│       └── UrlResponse.java
 ├── error/
 │   └── GlobalExceptionHandler.java
-└── util/
-    └── ResponseUtil.java
+├── model/
+│   └── url/
+│       ├── Url.java
+│       └── UrlBuilder.java
+├── repository/
+│   └── UrlRepository.java
+├── service/
+│   ├── UrlManagerService.java
+│   ├── UrlShortService.java
+│   └── impl/
+│       ├── UrlManagerServiceImpl.java
+│       └── UrlShortServiceImpl.java
+├── util/
+│   └── ResponseUtil.java
+└── ShortlyApplication.java
 ```
 
 ---
