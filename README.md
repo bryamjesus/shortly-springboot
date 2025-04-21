@@ -59,3 +59,14 @@ src/main/java/com/bjtg/shortly/
     └── ResponseUtil.java
 ```
 
+---
+
+- Java 21
+- Spring Boot 3.4.3
+- Spring Web
+- Spring Data JPA (Hibernate)
+- Spring Security
+- ModelMapper
+- PostgreSQL
+- Maven
+
