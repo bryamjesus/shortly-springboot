@@ -135,3 +135,13 @@ Se incluyen pruebas de integración con MockMvc para verificar CORS y endpoints:
 ```bash
 ./mvnw test
 ```
+
+---
+
+## Contribuciones
+
+1. Fork del repositorio.
+2. Crear una rama con la nueva característica (`git checkout -b feature/nombre`).
+3. Hacer commit de tus cambios (`git commit -m "Agregar nueva característica"`).
+4. Push a la rama (`git push origin feature/nombre`).
+5. Crear un Pull Request.
