@@ -96,3 +96,27 @@ src/main/java/com/bjtg/shortly/
       spring.datasource.username=tu_usuario
       spring.datasource.password=tu_contraseña
       ```
+
+---
+
+## Endpoints de la API
+
+| Método | Ruta                | Descripción                             | Request Body                   |
+| ------ | ------------------- | --------------------------------------- | ------------------------------ |
+| POST   | `/shortly`          | Generar un enlace corto                 | `{ "longUrl": "<url>" }`    |
+| GET    | `/shortly/{code}`   | Obtener/Redirigir a la URL original     | N/A                            |
+
+
+### Ejemplos
+
+- Generar enlace corto:
+  ```bash
+  curl -X POST http://localhost:8080/shortly \
+    -H "Content-Type: application/json" \
+    -d '{"longUrl":"https://www.example.com"}'
+  ```
+
+- Redirigir a la URL original:
+  ```bash
+  curl -v http://localhost:8080/shortly/abc123
+  ```
