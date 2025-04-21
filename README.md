@@ -111,10 +111,10 @@ src/main/java/com/bjtg/shortly/
 
 ## Endpoints de la API
 
-| Método | Ruta                | Descripción                             | Request Body                   |
-| ------ | ------------------- | --------------------------------------- | ------------------------------ |
-| POST   | `/shortly`          | Generar un enlace corto                 | `{ "longUrl": "<url>" }`    |
-| GET    | `/shortly/{code}`   | Obtener/Redirigir a la URL original     | N/A                            |
+| Método | Ruta              | Descripción                         | Request Body             |
+|--------|-------------------|-------------------------------------|--------------------------|
+| POST   | `/shortly`        | Generar un enlace corto             | `{ "longUrl": "<url>" }` |
+| GET    | `/shortly/{code}` | Obtener/Redirigir a la URL original | N/A                      |
 
 
 ### Ejemplos
@@ -150,12 +150,6 @@ Se incluyen pruebas de integración con MockMvc para verificar CORS y endpoints:
 3. Hacer commit de tus cambios (`git commit -m "Agregar nueva característica"`).
 4. Push a la rama (`git push origin feature/nombre`).
 5. Crear un Pull Request.
-
----
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
