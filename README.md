@@ -70,3 +70,10 @@ src/main/java/com/bjtg/shortly/
 - PostgreSQL
 - Maven
 
+---
+
+## Requisitos previos
+
+- Java 21+
+- Maven 3.6+
+- PostgreSQL 14+
