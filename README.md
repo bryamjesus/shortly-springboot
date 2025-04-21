@@ -125,3 +125,13 @@ src/main/java/com/bjtg/shortly/
   ```bash
   curl -v http://localhost:8080/shortly/abc123
   ```
+
+---
+
+## Pruebas
+
+Se incluyen pruebas de integración con MockMvc para verificar CORS y endpoints:
+
+```bash
+./mvnw test
+```
