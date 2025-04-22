@@ -111,10 +111,10 @@ src/main/java/com/bjtg/shortly/
 
 ## Endpoints de la API
 
-| Método | Ruta              | Descripción                         | Request Body             |
-|--------|-------------------|-------------------------------------|--------------------------|
-| POST   | `/shortly`        | Generar un enlace corto             | `{ "longUrl": "<url>" }` |
-| GET    | `/shortly/{code}` | Obtener/Redirigir a la URL original | N/A                      |
+| Método | Ruta              | Descripción                                                                                                                      | Request Body         |
+|--------|-------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| POST   | `/shortly`        | Generar un enlace corto                                                                                                          | `{ "url": "<url>" }` |
+| GET    | `/shortly/{code}` | Obtiene o redirige a la URL original. El parámetro `code` debe ser una cadena de **8 caracteres alfanuméricos** (A–Z, a–z, 0–9). | N/A                  |
 
 
 ### Ejemplos
