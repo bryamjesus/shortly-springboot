@@ -1,10 +1,12 @@
 package com.bjtg.shortly.service.impl;
 
 import com.bjtg.shortly.dto.url.UrlResponse;
+import com.bjtg.shortly.error.UrlNotFoundException;
 import com.bjtg.shortly.model.url.Url;
 import com.bjtg.shortly.repository.UrlRepository;
 import com.bjtg.shortly.service.UrlManagerService;
 import com.bjtg.shortly.service.UrlShortService;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -58,7 +60,7 @@ public class UrlManagerServiceImpl implements UrlManagerService {
     public UrlResponse getUrlByCode(String codeUrl) {
         String longUrl = urlRepository.findByShortCode(codeUrl)
                 .map(Url::getOriginalUrl)
-                .orElseThrow(() -> new RuntimeException("URL not found"));
+                .orElseThrow(UrlNotFoundException::new);
 
         return new UrlResponse(codeUrl, longUrl);
     }
