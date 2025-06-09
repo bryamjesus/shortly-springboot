@@ -14,6 +14,17 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    @ExceptionHandler(UrlNotFoundException.class)
+    public ResponseEntity<ApiResponse<Object>> handleUrlNotFound(UrlNotFoundException ex) {
+        String errorMessage = ex.getMessage();
+        ApiResponse<Object> response = ResponseUtil.error(
+                errorMessage,
+                null,
+                HttpStatus.NOT_FOUND.value()
+        );
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ApiResponse<Object>> handleConstraintViolationException(ConstraintViolationException ex) {
         String errorMessages = ex.getConstraintViolations()
