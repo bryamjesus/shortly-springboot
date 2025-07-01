@@ -71,6 +71,7 @@ public class UrlManagerServiceImpl implements UrlManagerService {
 
         return optionalUrl.map(url -> {
             updateHitCount(url);
+            System.out.println("url: " + url.getOriginalUrl() + " - codigo: " + url.getShortCode());
             return new UrlResponse(url.getShortCode(), urlRequest);
         }).orElseGet(() -> {
             Url savedUrl = saveShortUrl(urlRequest);

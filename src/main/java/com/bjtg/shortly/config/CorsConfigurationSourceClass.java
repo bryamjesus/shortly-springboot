@@ -13,7 +13,7 @@ public class CorsConfigurationSourceClass implements CorsConfigurationSource {
     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://127.0.0.1:5500"));
+        config.setAllowedOrigins(List.of("http://localhost:3000", "http://192.168.18.61"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         return config;
