@@ -1,9 +1,10 @@
 package com.bjtg.shortly.service.impl;
 
-import com.bjtg.shortly.service.UrlShortService;
+import java.util.Random;
+
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
+import com.bjtg.shortly.service.UrlShortService;
 
 @Service
 public class UrlShortServiceImpl implements UrlShortService {

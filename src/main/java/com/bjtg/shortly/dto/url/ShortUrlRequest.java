@@ -1,7 +1,8 @@
 package com.bjtg.shortly.dto.url;
 
-import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
+
+import jakarta.validation.constraints.NotBlank;
 
 public class ShortUrlRequest {
     @NotBlank(message = "La URL es requerida")

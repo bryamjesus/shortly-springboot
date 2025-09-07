@@ -1,9 +1,10 @@
 package com.bjtg.shortly.repository;
 
-import com.bjtg.shortly.model.url.Url;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import com.bjtg.shortly.model.url.Url;
 
 public interface UrlRepository extends JpaRepository<Url, Long> {
     Optional<Url> findByShortCode(String codeUrl);
