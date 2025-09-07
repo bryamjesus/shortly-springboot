@@ -20,7 +20,7 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "original_url", nullable = false, columnDefinition = "varchar")
+    @Column(name = "original_url", nullable = false, columnDefinition = "TEXT")
     private String originalUrl;
 
     @Column(name = "short_code", nullable = false, length = 8, unique = true)
@@ -30,7 +30,7 @@ public class Url {
     private Integer hitCount;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "create_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
