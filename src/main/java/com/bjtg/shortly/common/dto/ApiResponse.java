@@ -1,10 +1,10 @@
-package com.bjtg.shortly.dto;
+package com.bjtg.shortly.common.dto;
 
 public class ApiResponse<T> {
     private String status;
     private String message;
     private T data;
-    private int code; // Nuevo campo para el código HTTP
+    private int code;
 
     public ApiResponse() {
     }

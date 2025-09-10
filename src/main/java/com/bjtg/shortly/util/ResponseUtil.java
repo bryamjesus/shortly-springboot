@@ -1,6 +1,6 @@
 package com.bjtg.shortly.util;
 
-import com.bjtg.shortly.dto.ApiResponse;
+import com.bjtg.shortly.common.dto.ApiResponse;
 
 public class ResponseUtil {
     public static <T> ApiResponse<T> succes(String message, T data) {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bjtg.shortly.dto.ApiResponse;
+import com.bjtg.shortly.common.dto.ApiResponse;
 import com.bjtg.shortly.dto.url.ShortUrlRequest;
 import com.bjtg.shortly.dto.url.UrlResponse;
 import com.bjtg.shortly.service.UrlManagerService;

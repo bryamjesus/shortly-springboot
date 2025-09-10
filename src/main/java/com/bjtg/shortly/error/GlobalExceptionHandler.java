@@ -8,7 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.bjtg.shortly.dto.ApiResponse;
+import com.bjtg.shortly.common.dto.ApiResponse;
 import com.bjtg.shortly.util.ResponseUtil;
 
 import jakarta.validation.ConstraintViolation;
