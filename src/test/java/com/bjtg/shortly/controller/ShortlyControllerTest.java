@@ -2,6 +2,7 @@ package com.bjtg.shortly.controller;
 
 import com.bjtg.shortly.dto.url.UrlResponse;
 import com.bjtg.shortly.service.UrlManagerService;
+import com.bjtg.shortly.url.controller.ShortlyController;
 import com.bjtg.shortly.util.ResponseUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

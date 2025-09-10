@@ -1,4 +1,4 @@
-package com.bjtg.shortly.controller;
+package com.bjtg.shortly.url.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,7 +26,7 @@ public class ShortlyController {
     public ShortlyController(UrlManagerService urlManagerService) {
         this.urlManagerService = urlManagerService;
     }
-
+ 
     // http://localhost:8080/shortly/{codeUrl}
     @GetMapping("/{codeUrl}")
     public ResponseEntity<ApiResponse<UrlResponse>> getUrlByCodeUrl(
