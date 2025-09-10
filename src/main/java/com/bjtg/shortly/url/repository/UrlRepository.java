@@ -1,4 +1,4 @@
-package com.bjtg.shortly.repository;
+package com.bjtg.shortly.url.repository;
 
 import java.util.Optional;
 
