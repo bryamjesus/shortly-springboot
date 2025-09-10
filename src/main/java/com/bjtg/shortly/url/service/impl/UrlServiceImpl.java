@@ -51,8 +51,7 @@ public class UrlServiceImpl implements UrlService {
 
     private Url saveShortUrl(String urlRequest) {
         String codeUrl = generateCodeUrl();
-        Url url = Url.builder(urlRequest, codeUrl)
-                .build();
+        Url url = new Url(urlRequest, codeUrl);
         return saveUrl(url);
     }
 
