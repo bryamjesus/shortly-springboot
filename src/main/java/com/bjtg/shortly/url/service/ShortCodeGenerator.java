@@ -1,5 +1,5 @@
 package com.bjtg.shortly.url.service;
 
-public interface UrlShortService {
+public interface ShortCodeGenerator {
     String shortUrl();
 }

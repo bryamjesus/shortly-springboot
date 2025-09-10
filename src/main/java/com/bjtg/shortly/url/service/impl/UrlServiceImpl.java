@@ -9,14 +9,14 @@ import com.bjtg.shortly.url.exception.UrlNotFoundException;
 import com.bjtg.shortly.url.model.Url;
 import com.bjtg.shortly.url.repository.UrlRepository;
 import com.bjtg.shortly.url.service.UrlService;
-import com.bjtg.shortly.url.service.UrlShortService;
+import com.bjtg.shortly.url.service.ShortCodeGenerator;
 
 @Service
 public class UrlServiceImpl implements UrlService {
     private final UrlRepository urlRepository;
-    private final UrlShortService urlShortService;
+    private final ShortCodeGenerator urlShortService;
 
-    private UrlServiceImpl(UrlRepository urlRepository, UrlShortService urlShortService) {
+    private UrlServiceImpl(UrlRepository urlRepository, ShortCodeGenerator urlShortService) {
         this.urlRepository = urlRepository;
         this.urlShortService = urlShortService;
     }

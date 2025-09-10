@@ -4,10 +4,10 @@ import java.security.SecureRandom;
 
 import org.springframework.stereotype.Service;
 
-import com.bjtg.shortly.url.service.UrlShortService;
+import com.bjtg.shortly.url.service.ShortCodeGenerator;
 
 @Service
-public class UrlShortServiceImpl implements UrlShortService {
+public class ShortCodeGeneratorImpl implements ShortCodeGenerator {
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     private static final int CODE_LENGTH = 8;
     private final SecureRandom random = new SecureRandom();
