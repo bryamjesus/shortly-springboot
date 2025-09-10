@@ -1,11 +1,12 @@
 package com.bjtg.shortly.config;
 
-import jakarta.servlet.http.HttpServletRequest;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import java.util.List;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Component
 public class CorsConfig implements CorsConfigurationSource {

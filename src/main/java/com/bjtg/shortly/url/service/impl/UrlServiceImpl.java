@@ -8,8 +8,8 @@ import com.bjtg.shortly.url.dto.UrlResponse;
 import com.bjtg.shortly.url.exception.UrlNotFoundException;
 import com.bjtg.shortly.url.model.Url;
 import com.bjtg.shortly.url.repository.UrlRepository;
-import com.bjtg.shortly.url.service.UrlService;
 import com.bjtg.shortly.url.service.ShortCodeGenerator;
+import com.bjtg.shortly.url.service.UrlService;
 
 @Service
 public class UrlServiceImpl implements UrlService {
