@@ -1,8 +1,8 @@
-package com.bjtg.shortly.util;
+package com.bjtg.shortly.common.factory;
 
 import com.bjtg.shortly.common.dto.ApiResponse;
 
-public class ResponseUtil {
+public class ApiResponseFactory {
     public static <T> ApiResponse<T> succes(String message, T data) {
         return new ApiResponse<>("success", message, data, 200);
     }

@@ -11,10 +11,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.bjtg.shortly.common.factory.ApiResponseFactory;
 import com.bjtg.shortly.service.UrlManagerService;
 import com.bjtg.shortly.url.controller.ShortlyController;
 import com.bjtg.shortly.url.dto.UrlResponse;
-import com.bjtg.shortly.util.ResponseUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(controllers = ShortlyController.class)
@@ -38,7 +38,7 @@ public class ShortlyControllerTest {
         mockMvc.perform(get("/shortly/{codeUrl}", codeUrl))
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(
-                        ResponseUtil.succes("Url retrieved successfully", mockResponse)
+                        ApiResponseFactory.succes("Url retrieved successfully", mockResponse)
                 )));
     }
 }
