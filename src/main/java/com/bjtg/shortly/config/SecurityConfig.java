@@ -10,9 +10,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    private final CorsConfigurationSourceClass corsConfigurationSourceClass;
+    private final CorsConfig corsConfigurationSourceClass;
 
-    public SecurityConfig(CorsConfigurationSourceClass corsConfigurationSourceClass) {
+    public SecurityConfig(CorsConfig corsConfigurationSourceClass) {
         this.corsConfigurationSourceClass = corsConfigurationSourceClass;
     }
 
