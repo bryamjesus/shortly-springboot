@@ -4,27 +4,42 @@ public class UrlResponse {
     private String originalUrl;
     private String shortCode;
 
-    public UrlResponse() {
+    UrlResponse() {
     }
 
-    public UrlResponse(String shortCode, String originalUrl) {
+    UrlResponse(String shortCode, String originalUrl) {
         this.shortCode = shortCode;
         this.originalUrl = originalUrl;
+    }
+
+    public static UrlResponseBuilder builder() {
+        return new UrlResponseBuilder();
+    }
+
+    public static class UrlResponseBuilder {
+        private String originalUrl;
+        private String shortCode;
+
+        public UrlResponseBuilder originalUrl(String originalUrl) {
+            this.originalUrl = originalUrl;
+            return this;
+        }
+
+        public UrlResponseBuilder shortCode(String shortCode) {
+            this.shortCode = shortCode;
+            return this;
+        }
+
+        public UrlResponse build() {
+            return new UrlResponse(this.shortCode, this.originalUrl);
+        }
     }
 
     public String getOriginalUrl() {
         return originalUrl;
     }
 
-    public void setOriginalUrl(String originalUrl) {
-        this.originalUrl = originalUrl;
-    }
-
     public String getShortCode() {
         return shortCode;
-    }
-
-    public void setShortCode(String shortCode) {
-        this.shortCode = shortCode;
     }
 }

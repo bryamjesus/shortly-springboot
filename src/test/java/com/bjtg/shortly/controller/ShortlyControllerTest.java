@@ -31,14 +31,13 @@ public class ShortlyControllerTest {
     @Test
     public void testGetUrlByCodeUrl() throws Exception {
         String codeUrl = "abc12345";
-        UrlResponse mockResponse = new UrlResponse();
+        UrlResponse mockResponse = UrlResponse.builder().build();
 
         when(urlManagerService.getUrlByCode(codeUrl)).thenReturn(mockResponse);
 
         mockMvc.perform(get("/shortly/{codeUrl}", codeUrl))
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(
-                        ApiResponseFactory.succes("Url retrieved successfully", mockResponse)
-                )));
+                        ApiResponseFactory.succes("Url retrieved successfully", mockResponse))));
     }
 }
