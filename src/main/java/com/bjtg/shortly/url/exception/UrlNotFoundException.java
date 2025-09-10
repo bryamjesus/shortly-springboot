@@ -1,4 +1,4 @@
-package com.bjtg.shortly.error;
+package com.bjtg.shortly.url.exception;
 
 public class UrlNotFoundException extends RuntimeException {
     public UrlNotFoundException() {

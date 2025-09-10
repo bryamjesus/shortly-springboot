@@ -1,13 +1,14 @@
 package com.bjtg.shortly.service;
 
-import com.bjtg.shortly.service.impl.UrlShortServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import com.bjtg.shortly.url.service.impl.ShortCodeGeneratorImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UrlShortServiceImplTest {
-    private final UrlShortServiceImpl urlShortService = new UrlShortServiceImpl();
+    private final ShortCodeGeneratorImpl urlShortService = new ShortCodeGeneratorImpl();
 
     @Test
     @DisplayName("Generar código")

@@ -1,4 +1,4 @@
-package com.bjtg.shortly.model.url;
+package com.bjtg.shortly.url.model;
 
 import java.util.Date;
 

@@ -1,22 +1,22 @@
-package com.bjtg.shortly.service.impl;
+package com.bjtg.shortly.url.service.impl;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.bjtg.shortly.dto.url.UrlResponse;
-import com.bjtg.shortly.error.UrlNotFoundException;
-import com.bjtg.shortly.model.url.Url;
-import com.bjtg.shortly.repository.UrlRepository;
-import com.bjtg.shortly.service.UrlManagerService;
-import com.bjtg.shortly.service.UrlShortService;
+import com.bjtg.shortly.url.dto.UrlResponse;
+import com.bjtg.shortly.url.exception.UrlNotFoundException;
+import com.bjtg.shortly.url.model.Url;
+import com.bjtg.shortly.url.repository.UrlRepository;
+import com.bjtg.shortly.url.service.UrlService;
+import com.bjtg.shortly.url.service.ShortCodeGenerator;
 
 @Service
-public class UrlManagerServiceImpl implements UrlManagerService {
+public class UrlServiceImpl implements UrlService {
     private final UrlRepository urlRepository;
-    private final UrlShortService urlShortService;
+    private final ShortCodeGenerator urlShortService;
 
-    private UrlManagerServiceImpl(UrlRepository urlRepository, UrlShortService urlShortService) {
+    private UrlServiceImpl(UrlRepository urlRepository, ShortCodeGenerator urlShortService) {
         this.urlRepository = urlRepository;
         this.urlShortService = urlShortService;
     }
