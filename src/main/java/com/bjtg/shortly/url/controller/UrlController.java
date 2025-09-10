@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bjtg.shortly.common.dto.ApiResponse;
 import com.bjtg.shortly.common.factory.ApiResponseFactory;
-import com.bjtg.shortly.url.dto.ShortUrlRequest;
+import com.bjtg.shortly.url.dto.UrlRequest;
 import com.bjtg.shortly.url.dto.UrlResponse;
-import com.bjtg.shortly.url.service.UrlManagerService;
+import com.bjtg.shortly.url.service.UrlService;
 
 import jakarta.validation.constraints.Pattern;
 
 @Validated
 @RestController
 @RequestMapping("shortly")
-public class ShortlyController {
-    private final UrlManagerService urlManagerService;
+public class UrlController {
+    private final UrlService urlManagerService;
 
-    public ShortlyController(UrlManagerService urlManagerService) {
+    public UrlController(UrlService urlManagerService) {
         this.urlManagerService = urlManagerService;
     }
 
@@ -37,7 +37,7 @@ public class ShortlyController {
 
     // http://localhost:8080/shortly
     @PostMapping()
-    public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Validated @RequestBody ShortUrlRequest shortUrlRequest) {
+    public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Validated @RequestBody UrlRequest shortUrlRequest) {
         UrlResponse urlResponse = urlManagerService.shortUrl(shortUrlRequest.getUrl());
         return ResponseEntity.ok(ApiResponseFactory.succes("Short URL generate successfully", urlResponse));
     }

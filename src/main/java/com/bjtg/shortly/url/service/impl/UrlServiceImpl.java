@@ -8,15 +8,15 @@ import com.bjtg.shortly.url.dto.UrlResponse;
 import com.bjtg.shortly.url.exception.UrlNotFoundException;
 import com.bjtg.shortly.url.model.Url;
 import com.bjtg.shortly.url.repository.UrlRepository;
-import com.bjtg.shortly.url.service.UrlManagerService;
+import com.bjtg.shortly.url.service.UrlService;
 import com.bjtg.shortly.url.service.UrlShortService;
 
 @Service
-public class UrlManagerServiceImpl implements UrlManagerService {
+public class UrlServiceImpl implements UrlService {
     private final UrlRepository urlRepository;
     private final UrlShortService urlShortService;
 
-    private UrlManagerServiceImpl(UrlRepository urlRepository, UrlShortService urlShortService) {
+    private UrlServiceImpl(UrlRepository urlRepository, UrlShortService urlShortService) {
         this.urlRepository = urlRepository;
         this.urlShortService = urlShortService;
     }

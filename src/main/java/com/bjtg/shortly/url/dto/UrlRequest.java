@@ -4,15 +4,15 @@ import org.hibernate.validator.constraints.URL;
 
 import jakarta.validation.constraints.NotBlank;
 
-public class ShortUrlRequest {
+public class UrlRequest {
     @NotBlank(message = "La URL es requerida")
     @URL(message = "Debe ser una URL válida")
     private String url;
 
-    public ShortUrlRequest() {
+    public UrlRequest() {
     }
 
-    public ShortUrlRequest(String url) {
+    public UrlRequest(String url) {
         this.url = url;
     }
 
