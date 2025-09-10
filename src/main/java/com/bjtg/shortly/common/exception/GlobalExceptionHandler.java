@@ -1,4 +1,4 @@
-package com.bjtg.shortly.error;
+package com.bjtg.shortly.common.exception;
 
 import java.util.stream.Collectors;
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.bjtg.shortly.common.dto.ApiResponse;
 import com.bjtg.shortly.common.factory.ApiResponseFactory;
+import com.bjtg.shortly.url.exception.UrlNotFoundException;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
