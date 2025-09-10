@@ -1,4 +1,4 @@
-package com.bjtg.shortly.dto.url;
+package com.bjtg.shortly.url.dto;
 
 public class UrlResponse {
     private String originalUrl;

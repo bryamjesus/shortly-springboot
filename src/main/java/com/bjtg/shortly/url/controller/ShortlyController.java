@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bjtg.shortly.common.dto.ApiResponse;
-import com.bjtg.shortly.dto.url.ShortUrlRequest;
-import com.bjtg.shortly.dto.url.UrlResponse;
 import com.bjtg.shortly.service.UrlManagerService;
+import com.bjtg.shortly.url.dto.ShortUrlRequest;
+import com.bjtg.shortly.url.dto.UrlResponse;
 import com.bjtg.shortly.util.ResponseUtil;
 
 import jakarta.validation.constraints.Pattern;

@@ -4,11 +4,11 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.bjtg.shortly.dto.url.UrlResponse;
 import com.bjtg.shortly.error.UrlNotFoundException;
 import com.bjtg.shortly.repository.UrlRepository;
 import com.bjtg.shortly.service.UrlManagerService;
 import com.bjtg.shortly.service.UrlShortService;
+import com.bjtg.shortly.url.dto.UrlResponse;
 import com.bjtg.shortly.url.model.Url;
 
 @Service
