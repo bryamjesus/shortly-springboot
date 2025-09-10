@@ -1,4 +1,4 @@
-package com.bjtg.shortly.service;
+package com.bjtg.shortly.url.service;
 
 import com.bjtg.shortly.url.dto.UrlResponse;
 

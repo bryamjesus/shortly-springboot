@@ -12,9 +12,9 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.bjtg.shortly.common.factory.ApiResponseFactory;
-import com.bjtg.shortly.service.UrlManagerService;
 import com.bjtg.shortly.url.controller.ShortlyController;
 import com.bjtg.shortly.url.dto.UrlResponse;
+import com.bjtg.shortly.url.service.UrlManagerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(controllers = ShortlyController.class)
