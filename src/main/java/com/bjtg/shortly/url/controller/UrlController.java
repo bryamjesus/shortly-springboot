@@ -1,5 +1,6 @@
 package com.bjtg.shortly.url.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,13 +32,14 @@ public class UrlController {
     public ResponseEntity<ApiResponse<UrlResponse>> getUrlByCodeUrl(
             @PathVariable @Pattern(regexp = "^[A-Za-z0-9]{8}$", message = "El código debe tener 8 caracteres alfanuméricos") String codeUrl) {
         UrlResponse urlResponse = urlManagerService.getUrlByCode(codeUrl);
-        return ResponseEntity.ok(ApiResponseFactory.succes("Url retrieved successfully", urlResponse));
+        return ResponseEntity.ok(ApiResponseFactory.successOk("Url retrieved successfully", urlResponse));
     }
 
     // http://localhost:8080/shortly
     @PostMapping()
     public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Valid @RequestBody UrlRequest shortUrlRequest) {
         UrlResponse urlResponse = urlManagerService.shortUrl(shortUrlRequest.getUrl());
-        return ResponseEntity.ok(ApiResponseFactory.succes("Short URL generate successfully", urlResponse));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ApiResponseFactory.createCreated("Short URL generate successfully", urlResponse));
     }
 }
