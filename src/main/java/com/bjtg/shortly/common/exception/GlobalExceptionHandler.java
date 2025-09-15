@@ -22,7 +22,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Object>> handleUrlNotFound(UrlNotFoundException ex) {
         ApiResponse<Object> response = ApiResponseFactory.error(
                 ex.getMessage(),
-                null,
                 HttpStatus.NOT_FOUND.value());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
@@ -36,7 +35,6 @@ public class GlobalExceptionHandler {
 
         ApiResponse<Object> response = ApiResponseFactory.error(
                 errorMessages,
-                null,
                 HttpStatus.BAD_REQUEST.value());
         return ResponseEntity.badRequest().body(response);
     }
@@ -48,7 +46,7 @@ public class GlobalExceptionHandler {
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.joining(", "));
 
-        ApiResponse<Object> response = ApiResponseFactory.error(errorMessages, null, HttpStatus.BAD_REQUEST.value());
+        ApiResponse<Object> response = ApiResponseFactory.error(errorMessages, HttpStatus.BAD_REQUEST.value());
         return ResponseEntity.badRequest().body(response);
     }
 
@@ -56,7 +54,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Object>> handleGlobalException(Exception ex) {
         ApiResponse<Object> response = ApiResponseFactory.error(
                 "Unexpected error: " + ex.getMessage(),
-                null,
                 HttpStatus.INTERNAL_SERVER_ERROR.value());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
