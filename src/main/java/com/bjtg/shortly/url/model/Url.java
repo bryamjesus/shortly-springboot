@@ -1,6 +1,6 @@
 package com.bjtg.shortly.url.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,37 +31,29 @@ public class Url {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "modified_at")
-    private Date modifiedAt;
+    private LocalDateTime modifiedAt;
 
     @PrePersist
     public void prePersist() {
-        this.createdAt = new Date();
-        this.hitCount = 1;
+        this.createdAt = LocalDateTime.now();
+        this.hitCount = 0;
     }
 
     @PreUpdate
     public void preUpdate() {
-        this.modifiedAt = new Date();
+        this.modifiedAt = LocalDateTime.now();
     }
 
     public Url() {
     }
 
-    Url(UrlBuilder builder) {
-        this.id = builder.getId();
-        this.originalUrl = builder.getOriginalUrl();
-        this.shortCode = builder.getShortCode();
-        this.hitCount = builder.getHitCount();
-        this.createdAt = builder.getCreatedAt();
-        this.modifiedAt = builder.getModifiedAt();
-    }
-
-    public static UrlBuilder builder(String originalUrl, String shortCode) {
-        return new UrlBuilder(originalUrl, shortCode);
+    public Url(String originalUrl, String shortCode) {
+        this.originalUrl = originalUrl;
+        this.shortCode = shortCode;
     }
 
     public Long getId() {
@@ -80,15 +72,18 @@ public class Url {
         return hitCount;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public Date getModifiedAt() {
+    public LocalDateTime getModifiedAt() {
         return modifiedAt;
     }
 
     public void increaseHitCount() {
-        this.hitCount += 1;
+        if (this.hitCount == null) {
+            this.hitCount = 0;
+        }
+        this.hitCount++;
     }
 }

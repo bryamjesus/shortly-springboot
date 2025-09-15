@@ -1,11 +1,14 @@
 package com.bjtg.shortly.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.bjtg.shortly.url.service.impl.ShortCodeGeneratorImpl;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class UrlShortServiceImplTest {
     private final ShortCodeGeneratorImpl urlShortService = new ShortCodeGeneratorImpl();
@@ -13,7 +16,7 @@ public class UrlShortServiceImplTest {
     @Test
     @DisplayName("Generar código")
     public void testShortUrl_Generates8CharacterCode() {
-        String code = urlShortService.shortUrl();
+        String code = urlShortService.generateShortCode();
         System.out.println("code = " + code);
 
         // Verificar que no sea nulo
@@ -29,8 +32,8 @@ public class UrlShortServiceImplTest {
     @Test
     @DisplayName("Generar diferentes códigos")
     public void testShortUrl_GeneratesDifferentCodes() {
-        String code1 = urlShortService.shortUrl();
-        String code2 = urlShortService.shortUrl();
+        String code1 = urlShortService.generateShortCode();
+        String code2 = urlShortService.generateShortCode();
         System.out.println("code2+ code1 = " + code2 + code1);
 
         // Aunque la probabilidad de colisión es muy baja, se espera que en dos llamadas consecutivas sean diferentes.
