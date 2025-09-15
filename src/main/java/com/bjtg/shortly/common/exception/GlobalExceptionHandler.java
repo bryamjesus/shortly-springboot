@@ -2,11 +2,12 @@ package com.bjtg.shortly.common.exception;
 
 import java.util.stream.Collectors;
 
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.bjtg.shortly.common.dto.ApiResponse;
 import com.bjtg.shortly.common.factory.ApiResponseFactory;
@@ -15,17 +16,15 @@ import com.bjtg.shortly.url.exception.UrlNotFoundException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(UrlNotFoundException.class)
     public ResponseEntity<ApiResponse<Object>> handleUrlNotFound(UrlNotFoundException ex) {
-        String errorMessage = ex.getMessage();
         ApiResponse<Object> response = ApiResponseFactory.error(
-                errorMessage,
+                ex.getMessage(),
                 null,
-                HttpStatus.NOT_FOUND.value()
-        );
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+                HttpStatus.NOT_FOUND.value());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
@@ -38,22 +37,27 @@ public class GlobalExceptionHandler {
         ApiResponse<Object> response = ApiResponseFactory.error(
                 errorMessages,
                 null,
-                HttpStatus.BAD_REQUEST.value()
-        );
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+                HttpStatus.BAD_REQUEST.value());
+        return ResponseEntity.badRequest().body(response);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiResponse<Object>> handleValidationExceptions(
-            MethodArgumentNotValidException ex) {
-        String errorMessage = ex.getBindingResult().getAllErrors().get(0).getDefaultMessage();
-        ApiResponse<Object> response = ApiResponseFactory.error(errorMessage, null, HttpStatus.BAD_REQUEST.value());
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ApiResponse<Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        String errorMessages = ex.getBindingResult().getAllErrors()
+                .stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.joining(", "));
+
+        ApiResponse<Object> response = ApiResponseFactory.error(errorMessages, null, HttpStatus.BAD_REQUEST.value());
+        return ResponseEntity.badRequest().body(response);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponse<String>> handleGlobalException(Exception ex) {
-        ApiResponse<String> response = ApiResponseFactory.error(ex.getMessage(), null, HttpStatus.INTERNAL_SERVER_ERROR.value());
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<ApiResponse<Object>> handleGlobalException(Exception ex) {
+        ApiResponse<Object> response = ApiResponseFactory.error(
+                "Unexpected error: " + ex.getMessage(),
+                null,
+                HttpStatus.INTERNAL_SERVER_ERROR.value());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }
