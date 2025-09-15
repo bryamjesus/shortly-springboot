@@ -42,6 +42,3 @@ public class UrlController {
         return ResponseEntity.ok(ApiResponseFactory.succes("Short URL generate successfully", urlResponse));
     }
 }
-
-// patron use cases
-// estudiar mejor patron dto
