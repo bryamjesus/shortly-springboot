@@ -1,7 +1,6 @@
 package com.bjtg.shortly.url.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,9 +14,9 @@ import com.bjtg.shortly.url.dto.UrlRequest;
 import com.bjtg.shortly.url.dto.UrlResponse;
 import com.bjtg.shortly.url.service.UrlService;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 
-@Validated
 @RestController
 @RequestMapping("shortly")
 public class UrlController {
@@ -30,14 +29,14 @@ public class UrlController {
     // http://localhost:8080/shortly/{codeUrl}
     @GetMapping("/{codeUrl}")
     public ResponseEntity<ApiResponse<UrlResponse>> getUrlByCodeUrl(
-            @PathVariable(value = "codeUrl") @Pattern(regexp = "^[A-Za-z0-9]{8}$", message = "El código debe tener 8 caracteres y contener solo letras mayúsculas y números") String codeUrl) {
+            @PathVariable @Pattern(regexp = "^[A-Za-z0-9]{8}$", message = "El código debe tener 8 caracteres alfanuméricos") String codeUrl) {
         UrlResponse urlResponse = urlManagerService.getUrlByCode(codeUrl);
         return ResponseEntity.ok(ApiResponseFactory.succes("Url retrieved successfully", urlResponse));
     }
 
     // http://localhost:8080/shortly
     @PostMapping()
-    public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Validated @RequestBody UrlRequest shortUrlRequest) {
+    public ResponseEntity<ApiResponse<UrlResponse>> shortUrl(@Valid @RequestBody UrlRequest shortUrlRequest) {
         UrlResponse urlResponse = urlManagerService.shortUrl(shortUrlRequest.getUrl());
         return ResponseEntity.ok(ApiResponseFactory.succes("Short URL generate successfully", urlResponse));
     }
