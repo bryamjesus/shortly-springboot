@@ -63,7 +63,7 @@ public class UrlServiceImpl implements UrlService {
     private Url saveShortUrl(String urlRequest) {
         String shortCode = generateShortCode();
         LOGGER.info("Generated new shortCode={} for url={}", shortCode, urlRequest);
-        Url url = new Url(shortCode, urlRequest);
+        Url url = new Url(urlRequest, shortCode);
         return saveUrl(url);
     }
 
