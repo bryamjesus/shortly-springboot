@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: shortly-api
+  profiles:
+    active: dev
+  mvc:
+    servlet:
+      path: /api/v1
+
+server:
+  port: 8080
